@@ -1,14 +1,15 @@
 module.exports = ({ env }) => ({
-  defaultConnection: 'default',
+  defaultConnection: "default",
   connections: {
     default: {
-      connector: 'bookshelf',
+      connector: "mongoose",
       settings: {
-        client: 'sqlite',
-        filename: env('DATABASE_FILENAME', '.tmp/data.db'),
+        client: "mongo",
+        uri:
+          "mongodb://seka-admin:RSGY1vN4smoZRDCM@cluster0-shard-00-00.l3rvp.mongodb.net:27017,cluster0-shard-00-01.l3rvp.mongodb.net:27017,cluster0-shard-00-02.l3rvp.mongodb.net:27017/sekadb?ssl=true&replicaSet=atlas-e6whjp-shard-0&authSource=admin&retryWrites=true&w=majority",
       },
       options: {
-        useNullAsDefault: true,
+        sssl: true,
       },
     },
   },
