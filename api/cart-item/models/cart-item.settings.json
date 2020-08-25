@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cart_items",
+  "info": {
+    "name": "Cart item"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "products": {
+      "collection": "product"
+    },
+    "saved_for_later": {
+      "type": "boolean",
+      "default": false
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "time_added": {
+      "type": "datetime"
+    }
+  }
+}

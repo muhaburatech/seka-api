@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "discounts",
+  "info": {
+    "name": "Discount"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "discount": {
+      "type": "float"
+    },
+    "type": {
+      "type": "integer"
+    },
+    "valid": {
+      "type": "datetime"
+    },
+    "quantity": {
+      "type": "integer"
+    }
+  }
+}

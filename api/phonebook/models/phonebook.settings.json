@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "phonebooks",
+  "info": {
+    "name": "phonebook"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "number": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    }
+  }
+}

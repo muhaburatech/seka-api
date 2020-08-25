@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "Orders"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "reviewed",
+        "on_the_way",
+        "delivered"
+      ],
+      "default": "pending"
+    },
+    "address": {
+      "type": "json"
+    },
+    "transport_cost": {
+      "type": "integer",
+      "default": 1200
+    },
+    "payment_method": {
+      "type": "enumeration",
+      "enum": [
+        "cash_on_delivery"
+      ],
+      "default": "cash_on_delivery",
+      "required": false
+    },
+    "order_id": {
+      "type": "uid",
+      "required": true
+    },
+    "products": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}

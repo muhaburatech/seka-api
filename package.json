@@ -1,0 +1,41 @@
+{
+  "name": "pine-backend",
+  "private": true,
+  "version": "0.1.0",
+  "description": "A Strapi application",
+  "scripts": {
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "build": "strapi build",
+    "strapi": "strapi"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "axios": "^0.19.2",
+    "knex": "<0.20.0",
+    "sqlite3": "latest",
+    "strapi": "3.1.1",
+    "strapi-admin": "3.1.1",
+    "strapi-connector-bookshelf": "3.1.1",
+    "strapi-plugin-content-manager": "3.1.1",
+    "strapi-plugin-content-type-builder": "3.1.1",
+    "strapi-plugin-email": "3.1.1",
+    "strapi-plugin-graphql": "3.1.1",
+    "strapi-plugin-upload": "3.1.1",
+    "strapi-plugin-users-permissions": "3.1.1",
+    "strapi-provider-upload-cloudinary": "^3.1.2",
+    "strapi-utils": "^3.1.1",
+    "twilio": "^3.48.2"
+  },
+  "author": {
+    "name": "A Strapi developer"
+  },
+  "strapi": {
+    "uuid": "ae087385-7018-477a-a1a1-bc9db6c5e9cc"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "license": "MIT"
+}

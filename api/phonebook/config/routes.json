@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/phonebooks",
+      "handler": "phonebook.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/phonebooks/count",
+      "handler": "phonebook.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/phonebooks/:id",
+      "handler": "phonebook.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/phonebooks",
+      "handler": "phonebook.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/phonebooks/:id",
+      "handler": "phonebook.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/phonebooks/:id",
+      "handler": "phonebook.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "name": "Address"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "full_name": {
+      "type": "string",
+      "required": true
+    },
+    "address1": {
+      "type": "string"
+    },
+    "address2": {
+      "type": "string"
+    },
+    "postcode": {
+      "type": "string",
+      "maxLength": 5
+    },
+    "city": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    }
+  }
+}
