@@ -1,0 +1,9 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/mobilemoney",
+      "handler": "mobilemoney.index"
+    }
+  ]
+}
