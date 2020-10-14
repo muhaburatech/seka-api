@@ -1,4 +1,4 @@
-const axios = require("axios");
+const request = require("request");
 
 module.exports = {
   index: async (ctx) => {
@@ -8,19 +8,11 @@ module.exports = {
     const REDIRECT_URL =
       "https://webhook.site/06a1680d-c622-41fd-aff1-4882c1e1172d";
     const RETAILER_ID = 13;
+    const MSISDN = "0785141480";
     // msisdn, cname, cnumber, retailerid,  returl, redirecturl, bankid
-    const {
-      msisdn,
-      details,
-      refid,
-      amount,
-      email,
-      cname,
-      cnumber,
-      returl,
-    } = ctx.request.body;
+    const { details, refid, amount, email, cname, cnumber } = ctx.request.body;
     const data = {
-      msisdn,
+      msisdn: MSISDN,
       details,
       refid,
       amount,
@@ -30,10 +22,23 @@ module.exports = {
       cnumber,
       pmethod: PAYMENT_METHOD,
       retailerid: RETAILER_ID,
-      returl,
+      returl: REDIRECT_URL,
       redirecturl: REDIRECT_URL,
       bankid: BANK_ID,
     };
-    const { data } = await axios("", {});
+    const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL });
+    await fixieRequest(
+      {
+        url: "https://pay.esicia.com/",
+        headers: {
+          name: "seka",
+          password: "0Xjc7k",
+        },
+        body: data,
+      },
+      function callback(err, res, body) {
+        ctx.send({ body, res });
+      }
+    );
   },
 };
