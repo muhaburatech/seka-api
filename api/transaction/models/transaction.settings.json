@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "name": "transaction"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "status": {
+      "type": "string"
+    },
+    "amount": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "socketId": {
+      "type": "string"
+    }
+  }
+}

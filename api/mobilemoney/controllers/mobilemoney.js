@@ -1,44 +1,61 @@
 const request = require("request");
+const btoa = require('btoa')
 
 module.exports = {
   index: async (ctx) => {
-    const CURRENCY = "RWF";
+ const CURRENCY = "RWF";
     const PAYMENT_METHOD = "momo";
-    const BANK_ID = 63510;
-    const REDIRECT_URL =
-      "https://webhook.site/06a1680d-c622-41fd-aff1-4882c1e1172d";
-    const RETAILER_ID = 13;
-    const MSISDN = "0785141480";
+    const BANK_ID = '63510';
+    const REDIRECT_URL = 'https://seka-api.herokuapp.com';
+    const RETAILER_ID = '13';
+    const MSISDN = "250789453215";
+    const RET_URL = 'https://seka-postback-node.herokuapp.com/postback';
     // msisdn, cname, cnumber, retailerid,  returl, redirecturl, bankid
+
     const { details, refid, amount, email, cname, cnumber } = ctx.request.body;
+
     const data = {
       msisdn: MSISDN,
       details,
       refid,
-      amount,
+      amount: Number(amount),
       currency: CURRENCY,
       email,
       cname,
       cnumber,
       pmethod: PAYMENT_METHOD,
       retailerid: RETAILER_ID,
-      returl: REDIRECT_URL,
+      returl: RET_URL,
       redirecturl: REDIRECT_URL,
       bankid: BANK_ID,
     };
-    const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL });
-    await fixieRequest(
-      {
-        url: "https://pay.esicia.com/",
-        headers: {
-          name: "seka",
-          password: "0Xjc7k",
-        },
-        body: data,
+
+    const options = {
+      url: 'https://pay.esicia.com',
+      method: 'POST',
+      
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          "Authorization": `Basic ${btoa('sekaa:0Xjc7k')}`
       },
-      function callback(err, res, body) {
-        ctx.send({ body, res });
-      }
+  
+      body: JSON.stringify(data),
+  };
+  
+    const fixieRequest = request.defaults({ proxy: process.env.FIXIE_URL });
+    const res = await fixieRequest(
+      options,
+      function(err, res, body) {
+  
+        console.log("-->", body);
+        return body;
+    }
     );
+
+    return res;
+
   },
 };
+
+
